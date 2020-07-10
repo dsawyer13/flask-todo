@@ -1,0 +1,158 @@
+body {
+    margin: 0;
+    background: #ededed;
+    font-family: 'Quicksand', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, p {
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+    color: white;
+    font-weight: bold;
+}
+
+h4 {
+    font-weight: 600;
+    padding: 0 10px;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+.container {
+    max-width: 800px;
+    margin-top: 3rem;
+}
+
+.content {
+    background: white;
+    border-radius: 2px;
+    padding: 2rem 0 0;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    width: 100vw;
+    height: 20rem;
+    background-color: #00796b;
+    left: 0;
+    top: -8rem;
+    position: absolute;
+    z-index: -1;
+}
+
+.form__add {
+    padding: 0 10px 1.5rem;
+}
+
+.form__add form {
+     display: flex;
+}
+
+.form__add form > input {
+    flex: 6;
+}
+
+.form__add form > select, .form__add form > button {
+    flex: 1;
+}
+
+.form__add .form-control {
+    margin-right: 10px;
+}
+
+.form__add button {
+    border: none;
+    border-radius: .25rem;
+    background: #1976d2;
+    color: white;
+    font-size: 20px;
+}
+
+.todo {
+    font-size: 16px;
+    border-bottom: 1px solid #a2a2a2;
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    margin-bottom: 10px;
+}
+
+.actions {
+    float: right;
+    padding-right: 16px;
+}
+
+.actions button {
+    background: transparent;
+    border: none;
+    color: #1976d2;
+}
+
+.actions a.cancel {
+    color: #d32f2f;
+}
+
+.actions a.edit {
+    color: #1976d2;
+    margin-right: 8px;
+}
+
+.actions a.delete {
+    color: #d32f2f;
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    padding: 10px;
+}
+th {
+    padding: 0 10px
+}
+
+.td__no-padding {
+    padding: 0 0 0 10px;
+    margin-right: 10px;
+}
+
+.td__no-padding input {
+    width: 100%;
+}
+
+.th-2 {
+    width: 20%;
+}
+
+.th-3 {
+    width: 10%;
+}
+
+button.submit {
+    padding: 0;
+    margin-right: 12px;
+}
+
+.todo__edit select {
+    width: 6.8rem;
+}
+
+.todo__edit td {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.todo__edit .actions {
+    padding-right: 17px;
+    padding-top: 10px;
+}

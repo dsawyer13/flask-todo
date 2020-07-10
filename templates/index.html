@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Todo List</h1>
+<div class='content'>
+    {% if tasks %}
+    <div class='form__add'>
+        <form action='/' method='POST'>
+            <input class='form-control' type='text' name='task' id='task' placeholder='What needs to be done?'>
+            <select class='form-control' name='priority' id='priority'>
+                <option value='Low'>Low</option>
+                <option value='Medium'>Medium</option>
+                <option value='High'>High</option>
+            </select>
+            <button type='submit'><i class="fas fa-plus"></i></button>
+        </form>
+    </div>
+
+    <table>
+        <tr>
+            <th>Task</th><th class='th-2'>Priority</th><th class='th-3'>Actions</th>
+        </tr>
+    {% for task in tasks %}
+        {% if task.editing == True %}
+            <tr class='todo todo__edit'>
+                <form id='form' action='/update/{{ task.id }}' method='POST'></form>
+                    <td class='td__no-padding'><input class='form-control' type='text' form='form' name='task' id='task' value='{{ task.task }}'></td>
+                    <td><select form='form' class='form-control' name='priority' id='priority'>
+                        <option value='Low'>Low</option>
+                        <option value='Medium'>Medium</option>
+                        <option value='High'>High</option>
+                    </select></td>
+                    <td class='actions'>
+                        <button class='submit' type='submit' form='form'><i class="fas fa-check"></i></button>
+                        <a class='cancel' href='/cancel/{{ task.id }}'><i class="fas fa-times"></i></a>
+                    </td>
+            </tr>
+
+        {% else %}
+            <tr class='todo'>
+                <td class='task__name'>{{ task.task }}</td>
+                <td class='task__priority'>{{ task.priority }}</td>
+                <td class='actions'>
+                    <a class='edit' href='/edit/{{ task.id }}'><i class="fas fa-edit"></i></a>
+                    <a class='delete' href='/delete/{{ task.id }}'><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+    </table>
+    {% else %}
+    <h4>There are no tasks, create one below</h4>
+
+    <div class='form__add'>
+        <form action='/' method='POST'>
+            <input class='form-control' type='text' name='task' id='task' placeholder='What needs to be done?'>
+            <select class='form-control' name='priority' id='priority'>
+                <option value='Low'>Low</option>
+                <option value='Medium'>Medium</option>
+                <option value='High'>High</option>
+            </select>
+            <button type='submit'><i class="fas fa-plus"></i></button>
+        </form>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
